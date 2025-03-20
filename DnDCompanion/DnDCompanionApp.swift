@@ -11,7 +11,7 @@ import SwiftUI
 struct DnDCompanionApp: App {
     var body: some Scene {
         WindowGroup {
-            CategoryView()
+            CategoryListView()
         }
     }
 }
