@@ -16,6 +16,7 @@ class CategoryListViewModel: ObservableObject {
     
     init(service: CategoryListDataProvidable = CategoryListDataProvider()) {
         self.service = service
+        loadData()
     }
     
     func loadData() {

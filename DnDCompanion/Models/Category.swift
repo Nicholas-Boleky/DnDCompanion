@@ -7,8 +7,7 @@
 
 import Foundation
 
-struct Category: Identifiable {
-    let id = UUID()
+struct Category: Hashable {
     let name: String
     let urlPath: String
 }

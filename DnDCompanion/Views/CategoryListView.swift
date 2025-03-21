@@ -12,7 +12,7 @@ struct CategoryListView: View {
     
     var body: some View {
         NavigationView{
-            List(viewModel.categories) { category in
+            List(viewModel.categories, id: \.urlPath) { category in
                 NavigationLink(destination: SubCategoryListView(categoryName: category.name)) {
                     Text("\(category.name)")
                 }
@@ -22,9 +22,6 @@ struct CategoryListView: View {
                 if viewModel.isLoading {
                     ProgressView()
                 }
-            }
-            .task {
-                viewModel.loadData()
             }
         }
     }

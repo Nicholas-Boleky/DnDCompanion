@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol NetworkClient {
+protocol APIDataProvidable {
     func perform<Object: Decodable>(_ request: URLRequest) async throws -> Object
 }
 
-extension NetworkClient {
+extension APIDataProvidable {
     func perform<Object: Decodable>(_ request: URLRequest) async throws -> Object {
         let (data, _) = try await URLSession.shared.data(for: request)
         

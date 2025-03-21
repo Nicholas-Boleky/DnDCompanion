@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol CategoryListDataProvidable: NetworkClient {
+protocol CategoryListDataProvidable: APIDataProvidable {
     func fetchCategories() async throws -> [Category]
 }
 
