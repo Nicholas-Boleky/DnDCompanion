@@ -7,19 +7,19 @@
 
 import SwiftUI
 
-struct SubCategoryView: View {
-    let categoryIndex: Int
+struct SubCategoryListView: View {
+    let categoryName: String
     
     var body: some View {
         List(1...5, id: \.self) { subCategoryIndex in
-            NavigationLink(destination: SubCategoryDetailView(categoryIndex: categoryIndex, subCategoryIndex: subCategoryIndex)) {
+            NavigationLink(destination: SubCategoryDetailView(categoryName: categoryName, subCategoryIndex: subCategoryIndex)) {
                 Text("SubCategory \(subCategoryIndex)")
             }
         }
-        .navigationTitle("Category \(categoryIndex)")
+        .navigationTitle("\(categoryName)")
     }
 }
 
 #Preview {
-    SubCategoryView(categoryIndex: 1)
+    SubCategoryListView(categoryName: "Abilities")
 }

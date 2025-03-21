@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct SubCategoryDetailView: View {
-    let categoryIndex: Int
+    let categoryName: String
     let subCategoryIndex: Int
     
     var body: some View {
-        Text("Category \(categoryIndex) - Item \(subCategoryIndex)")
+        Text("Category \(categoryName) - Item \(subCategoryIndex)")
             .navigationTitle("Detail")
             .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 #Preview {
-    SubCategoryDetailView(categoryIndex: 2, subCategoryIndex: 5)
+    SubCategoryDetailView(categoryName: "abilities", subCategoryIndex: 5)
 }
