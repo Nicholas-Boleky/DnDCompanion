@@ -13,7 +13,7 @@ struct CategoryListView: View {
     var body: some View {
         NavigationView{
             List(viewModel.categories, id: \.urlPath) { category in
-                NavigationLink(destination: SubCategoryListView(categoryName: category.name)) {
+                NavigationLink(destination: SubCategoryListView(category: category)) {
                     Text("\(category.name)")
                 }
             }

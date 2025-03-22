@@ -8,18 +8,30 @@
 import SwiftUI
 
 struct SubCategoryListView: View {
-    let categoryName: String
+    let category: Category
+    
+    @StateObject private var viewModel: SubCategoryListViewModel
+    
+    init(category: Category) {
+        self.category = category
+        _viewModel = StateObject(wrappedValue: SubCategoryListViewModel(dataProvider: SubCategoryDataProvider(), subCategoryPath: category.urlPath))
+    }
     
     var body: some View {
-        List(1...5, id: \.self) { subCategoryIndex in
-            NavigationLink(destination: SubCategoryDetailView(categoryName: categoryName, subCategoryIndex: subCategoryIndex)) {
-                Text("SubCategory \(subCategoryIndex)")
+        List(viewModel.subCategories, id: \.urlPath) { subCategory in
+            NavigationLink(destination: SubCategoryDetailView(categoryName: category.name)) {
+                Text("SubCategory \(subCategory.name)")
             }
         }
-        .navigationTitle("\(categoryName)")
+        .navigationTitle("\(category.name)")
+        .overlay {
+            if viewModel.isLoading {
+                ProgressView()
+            }
+        }
     }
 }
 
 #Preview {
-    SubCategoryListView(categoryName: "Abilities")
+    SubCategoryListView(category: Category(name: "abilities", urlPath: "/api/2014/abilities"))
 }

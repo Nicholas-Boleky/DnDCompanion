@@ -9,15 +9,14 @@ import SwiftUI
 
 struct SubCategoryDetailView: View {
     let categoryName: String
-    let subCategoryIndex: Int
     
     var body: some View {
-        Text("Category \(categoryName) - Item \(subCategoryIndex)")
+        Text("Category \(categoryName)")
             .navigationTitle("Detail")
             .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 #Preview {
-    SubCategoryDetailView(categoryName: "abilities", subCategoryIndex: 5)
+    SubCategoryDetailView(categoryName: "abilities")
 }
