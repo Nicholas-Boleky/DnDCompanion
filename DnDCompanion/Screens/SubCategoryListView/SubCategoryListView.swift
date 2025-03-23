@@ -9,14 +9,8 @@ import SwiftUI
 
 struct SubCategoryListView: View {
     let category: Category
-    
-    @StateObject private var viewModel: SubCategoryListViewModel
-    
-    init(category: Category) {
-        self.category = category
-        _viewModel = StateObject(wrappedValue: SubCategoryListViewModel(dataProvider: SubCategoryDataProvider(), subCategoryPath: category.urlPath))
-    }
-    
+    @StateObject var viewModel: SubCategoryListViewModel
+
     var body: some View {
         List(viewModel.subCategories, id: \.urlPath) { subCategory in
             NavigationLink(destination: SubCategoryDetailView(categoryName: category.name)) {
@@ -33,5 +27,5 @@ struct SubCategoryListView: View {
 }
 
 #Preview {
-    SubCategoryListView(category: Category(name: "abilities", urlPath: "/api/2014/abilities"))
+    SubCategoryListView(category: Category(name: "abilities", urlPath: "/api/2014/abilities"), viewModel: SubCategoryListViewModel(dataProvider: SubCategoryDataProvider(), subCategoryPath: "/api/2014/abilities"))
 }
