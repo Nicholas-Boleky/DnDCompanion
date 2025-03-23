@@ -20,7 +20,3 @@ struct SubCategory: Decodable {
         case urlPath = "url"
     }
 }
-
-struct TopLevelNetworkResponse<T: Decodable>: Decodable {
-    let results: T
-}

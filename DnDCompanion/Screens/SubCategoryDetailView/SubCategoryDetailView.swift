@@ -11,7 +11,7 @@ struct SubCategoryDetailView: View {
     let categoryName: String
     
     var body: some View {
-        Text("Category \(categoryName)")
+        Text("SubCategory \(categoryName)")
             .navigationTitle("Detail")
             .navigationBarTitleDisplayMode(.inline)
     }
