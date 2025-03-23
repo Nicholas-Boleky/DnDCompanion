@@ -40,5 +40,4 @@ class SubCategoryListViewModel: ObservableObject {
         }
         isLoading = false
     }
-    
 }
