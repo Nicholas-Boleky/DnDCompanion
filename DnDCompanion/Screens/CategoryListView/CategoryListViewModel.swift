@@ -19,7 +19,7 @@ class CategoryListViewModel: ObservableObject {
         loadData()
     }
     
-    func loadData() {
+    private func loadData() {
         Task {
             await fetchCategories()
         }
